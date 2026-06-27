@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jiangtao Yan - Personal Homepage</title>
+    <style>
+        :root {
+            --primary-color: #18181b; /* Graphite Black - Deep & Refined */
+            --text-color: #4b5563;    /* Muted Charcoal - High Readability */
+            --light-bg: #f9fafb;      /* Clean Cold White Base */
+            --border-color: #e5e7eb;  /* Subtle Light Border */
+            --accent-color: #0d9488;  /* Geek Turquoise Green - Tech Accent */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Single-Column Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        /* Profile Header Section */
+        .header-profile {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 50px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            background-color: var(--light-bg);
+            flex-shrink: 0;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .name-en {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .name-zh {
+            font-size: 18px;
+            color: #9ca3af;
+            margin-bottom: 15px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .title {
+            font-size: 14.5px;
+            color: #6b7280;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .contact-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+            font-size: 13.5px;
+            color: #6b7280;
+        }
+
+        /* Section Layout Styles */
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 6px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 14.5px;
+            color: var(--text-color);
+        }
+
+        .news-list {
+            list-style: none;
+        }
+
+        .news-list li {
+            margin-bottom: 12px;
+            font-size: 14.5px;
+            color: var(--text-color);
+        }
+
+        .news-date {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-right: 15px;
+            display: inline-block;
+        }
+
+        /* Publications Layout Styling */
+        .pub-item {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed #e5e7eb;
+            align-items: flex-start;
+        }
+
+        .pub-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        /* Left Teaser Image Box */
+        .pub-img-box {
+            width: 160px;
+            height: 105px;
+            background-color: var(--light-bg);
+            border-radius: 6px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #9ca3af;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+        }
+
+        .pub-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        /* Right Meta Details */
+        .pub-info {
+            flex: 1;
+        }
+
+        .pub-title {
+            font-weight: 700;
+            font-size: 15.5px;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .pub-authors {
+            font-size: 13.5px;
+            color: #6b7280;
+            margin-bottom: 6px;
+        }
+
+        .pub-venue {
+            font-size: 13.5px;
+            font-style: italic;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        /* Concise Publication Summary Box */
+        .pub-summary {
+            font-size: 13px;
+            color: var(--text-color);
+            text-align: justify;
+            margin-top: 8px;
+            line-height: 1.5;
+            background-color: var(--light-bg);
+            padding: 8px 12px;
+            border-radius: 4px;
+            border-left: 2px solid #d1d5db;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            font-size: 10.5px;
+            font-weight: 600;
+            border-radius: 4px;
+            font-style: normal;
+        }
+
+        .badge-accepted { background-color: #f0fdf4; color: #115e59; border: 1px solid #ccfbf1; }
+        .badge-review { background-color: #fafafa; color: #6b7280; border: 1px solid #e5e7eb; }
+
+        /* Experience & Education Layout Styling */
+        .timeline-item {
+            margin-bottom: 25px;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .timeline-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .timeline-date {
+            font-size: 13px;
+            color: #9ca3af;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .timeline-sub {
+            font-size: 13.5px;
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .timeline-summary {
+            font-size: 13.5px;
+            text-align: justify;
+            color: var(--text-color);
+        }
+
+        /* Mobile View Adaptations */
+        @media (max-width: 650px) {
+            .header-profile {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                padding-bottom: 25px;
+            }
+            .contact-box {
+                justify-content: center;
+            }
+            .pub-item {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            .pub-img-box {
+                width: 100%;
+                height: 130px;
+            }
+            .timeline-header {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Profile Header -->
+        <header class="header-profile">
+            <img src="https://via.placeholder.com/130" alt="Jiangtao Yan" class="avatar">
+            <div class="profile-info">
+                <h1 class="name-en">Jiangtao Yan</h1>
+                <div class="name-zh">严江涛</div>
+                <div class="title">
+                    Master's Student, National School of Cyberspace Security, Wuhan University <br>
+                    Research Interests: Multimodal Large Language Models, Agents 
+                </div>
+                <div class="contact-box">
+                    <span>📧 Email: jiangtaoyan@whu.edu.cn</span> 
+                    <span>📱 Phone: +86 15272468277</span> 
+                    <span>📍 Location: Wuhan, Hubei, China</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            
+            <!-- About Me -->
+            <section id="about">
+                <h2>About Me</h2>
+                <p>
+                    I am Jiangtao Yan, a Master's student at the <b>National School of Cyberspace Security, Wuhan University</b> (expected graduation in June 2027) . I received my Bachelor's degree in Software Engineering from the School of Computer Science, Wuhan University, in June 2024 .
+                </p>
+                <p>
+                    My core research interests lie in <b>Multimodal Large Language Models (MLLMs)</b>, <b>Large Language Model Agents</b>, and <b>Medical Artificial Intelligence</b> . I have gained valuable research and engineering experience through algorithm internship positions at both Shanghai Artificial Intelligence Laboratory and Alibaba Group, where I actively contributed to several cutting-edge projects .
+                </p>
+                <p style="color: var(--accent-color); font-weight: 500; font-size: 14px;">
+                    ✉️ If you are interested in my research directions, please feel free to reach out via email to discuss academic ideas or explore potential collaborations! 
+                </p>
+            </section>
+
+            <!-- News -->
+            <section id="news">
+                <h2>News</h2>
+                <ul class="news-list">
+                    <li><span class="news-date">2026.05</span> 🎉 Our paper <b>ORBIT</b> has been accepted by <b>ICML 2026</b> !</li>
+                    <li><span class="news-date">2025.10</span> 🏆 Awarded the National Third Prize in the 7th China Postgraduate AI Innovation Competition ("Huawei Cup") as Team Leader .</li>
+                </ul>
+            </section>
+
+            <!-- Publications -->
+            <section id="publications">
+                <h2>Publications</h2>
+
+                <!-- Paper 1 -->
+                <div class="pub-item">
+                    <div class="pub-img-box">
+                        <span>ORBIT Teaser</span>
+                    </div>
+                    <div class="pub-info">
+                        <div class="pub-title">ORBIT: A Prognostic World Model for Ocular Reasoning Based on Imagined Trajectories</div> 
+                        <div class="pub-authors"><b>Jiangtao Yan</b>, Co-authors...</div> 
+                        <div class="pub-venue">Accepted in <b>ICML 2026</b></div> 
+                        <div style="margin-top: 4px;">
+                            <span class="badge badge-accepted">Accepted in ICML 2026</span> 
+                        </div>
+                        <div class="pub-summary">
+                            <b>Summary:</b> Built the first clinical ophthalmic prognostic world model integrating a decision agent and a dynamics simulator, establishing a closed-loop reasoning chain to achieve superior decision safety and anatomical interpretability under small-scale parameter constraints .
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paper 2 -->
+                <div class="pub-item">
+                    <div class="pub-img-box">
+                        <span>SIGMA Teaser</span>
+                    </div>
+                    <div class="pub-info">
+                        <div class="pub-title">SIGMA: Spatiotemporal Interventional Generation via Mechanism-Aware Unified Models</div> 
+                        <div class="pub-authors"><b>Jiangtao Yan</b>, Co-authors...</div> 
+                        <div class="pub-venue">Under Review, 2026</div> 
+                        <div style="margin-top: 4px;">
+                            <span class="badge badge-review">Under Review</span> 
+                        </div>
+                        <div class="pub-summary">
+                            <b>Summary:</b> Pioneered the "spatiotemporal interventional generation" task using an agent-based unified generation and comprehension architecture to predict future counterfactual pathological progression under tight anatomical and pharmacological constraints .
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paper 3 -->
+                <div class="pub-item">
+                    <div class="pub-img-box">
+                        <span>Deltas Teaser</span>
+                    </div>
+                    <div class="pub-info">
+                        <div class="pub-title">Thinking with Deltas: Incentivizing Reinforcement Learning via Differential Visual Reasoning Policy</div> 
+                        <div class="pub-authors">Co-authors, <b>Jiangtao Yan</b>...</div> 
+                        <div class="pub-venue">Under Review, 2026</div> 
+                        <div style="margin-top: 4px;">
+                            <span class="badge badge-review">Under Review</span> 
+                        </div>
+                        <div class="pub-summary">
+                            <b>Summary:</b> Proposed a reinforcement learning training framework via differential visual reasoning, introducing an endogenous "visual triplet" signal to force reasoning chains to strictly anchor on visual evidence and mitigate speculative shortcuts .
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Experience -->
+            <section id="experience">
+                <h2>Experience</h2>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="timeline-title">Alibaba Group</span>
+                        <span class="timeline-date">May 2026 - Present</span>
+                    </div>
+                    <div class="timeline-sub">MLLM Algorithm Intern | Alibaba International Digital Commerce - Intelligent Technology </div>
+                    <div class="timeline-summary">
+                        Conducting research on fine-grained difference perception optimization for Multimodal Large Language Models (MLLMs) within e-commerce item matching scenarios . The work specifically addresses the critical pain point where current models over-emphasize global semantics while missing micro-details, aiming to explicitly enhance the system's ability to distinguish identical yet subtly different items .
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="timeline-title">Shanghai Artificial Intelligence Laboratory</span>
+                        <span class="timeline-date">Jul 2025 - May 2026</span>
+                    </div>
+                    <div class="timeline-sub">Research Algorithm Intern | Medical Multimodal Large Model Direction </div>
+                    <div class="timeline-summary">
+                        Focused on overcoming decision hallucinations and perception-reasoning decoupling in complex medical scenarios . Contributed heavily to large-scale medical foundation model data building and drove core methodology development for clinical prognostic world models, interventional generation, and differential reinforcement learning pipelines .
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Education -->
+            <section id="education">
+                <h2>Education</h2>
+                
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="timeline-title">Wuhan University</span>
+                        <span class="timeline-date">Sept 2024 - June 2027 (Expected)</span>
+                    </div>
+                    <div class="timeline-sub">National School of Cyberspace Security | M.S. in Cyberspace Security </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="timeline-title">Wuhan University</span>
+                        <span class="timeline-date">Sept 2020 - June 2024</span>
+                    </div>
+                    <div class="timeline-sub">School of Computer Science | B.Eng. in Software Engineering </div>
+                    <div class="timeline-summary">
+                        Honors: Recipient of Wuhan University Merit Student, Outstanding Student, Second-Class Academic Scholarship, and Huawei Smart Base Scholarship .
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Honors & Awards -->
+            <section id="awards">
+                <h2>Honors & Awards</h2>
+                <ul class="news-list">
+                    <li><span class="news-date">2025.10</span> 🏆 National Third Prize, The 7th China Postgraduate AI Innovation Competition ("Huawei Cup"), Team Leader </li>
+                    <li><span class="news-date">2022.08</span> 🏆 National First Prize, National University Internet of Things Design Competition ("Huawei Cup"), Core Member </li>
+                    <li><span class="news-date">2022.07</span> 🏆 National Second Prize, China University Computer Design Competition, Team Leader </li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
